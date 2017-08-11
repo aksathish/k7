@@ -1,15 +1,28 @@
-#include <stdio.h>
-#include <string.h>
-void main()
-{
-char s[200];
-int count = 0, i;
-printf("enter the string\n");
-scanf("%[^\n]s", s);
-for (i = 0;s[i] != '\0';i++)
-{
-if (s[i] == ' ')
-count++;    
-}
-printf("number of words in given string are: %d\n", count + 1);
+int words(const char *sentence) 
+{ 
+int count,i,len; 
+char lastC;
+len=strlen(sentence); 
+if(len > 0) 
+{ 
+lastC = sentence[0];
+} 
+for(i=0; i<=len; i++) 
+{ 
+if(sentence[i]==' ' && lastC != ' ')
+{ 
+count++; 
+} 
+lastC = sentence[i]; 
+} 
+if(count > 0 && sentence[i] != ' ') 
+{ 
+count++; 
+} 
+return count; 
+} 
+int main() 
+{ 
+char str[30] = "a posse ad esse"; 
+printf("Words = %i\n", words(str)); 
 }
